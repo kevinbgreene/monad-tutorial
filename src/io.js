@@ -139,3 +139,17 @@ IO.prototype.recover = function(fn) {
     }, resolve);
   });
 };
+
+
+/**
+ * default :: IO x a -> a -> IO x a
+ *
+ * @name default
+ * @method
+ * @memberof IO#
+ * @param {*} val A value to replace an error
+ * @returns {IO} A new instance of the IO monad
+ */
+IO.prototype.default = function(val) {
+  return this.recover(() => val);
+};
