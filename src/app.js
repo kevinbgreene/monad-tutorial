@@ -22,13 +22,11 @@ const displayResults = function(results) {
   });
 };
 
-const asData = function(response) {
+const toData = function(response) {
   return response.data;
 };
 
-const request = fetchResults();
-
-const fetchAndDisplay = request.map(asData).chain(displayResults);
+const fetchAndDisplay = fetchResults().map(toData).chain(displayResults);
 
 // Nothing has happened yet.
 
